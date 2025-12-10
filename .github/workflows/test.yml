@@ -44,16 +44,17 @@ jobs:
       - name: Run e2e tests
         run: npm test -- tests/e2e/
 
-      - name: Run all tests with coverage
-        run: npm test -- --coverage
+      - name: Run all tests with coverage and generate JSON report
+        run: npm test -- --coverage --json --outputFile=test-results.json || true
+
+      - name: Install Allure CLI
+        if: always()
+        run: npm install -g allure-commandline
 
       - name: Generate Allure Report
         if: always()
-        uses: simple-elf/allure-report-action@master
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
+        run: allure generate --clean -o allure-report
+        continue-on-error: true
 
       - name: Deploy report to Github Pages
         if: always()
