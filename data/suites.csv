@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","15","responds with Hello world","","2025-12-10","passed","2025-12-10","","E2E GET /hello","E2E GET /hello",""
-"","0","returns the hello world message","","2025-12-10","passed","2025-12-10","","getGreeting","getGreeting",""
-"","21","should return Hello world","","2025-12-10","passed","2025-12-10","","GET /hello","GET /hello",""
+"","1","returns the hello world message","","2025-12-10","passed","2025-12-10","","getGreeting","getGreeting",""
+"","32","should return Hello world","","2025-12-10","passed","2025-12-10","","GET /hello","GET /hello",""
+"","11","responds with Hello world","","2025-12-10","passed","2025-12-10","","E2E GET /hello","E2E GET /hello",""
