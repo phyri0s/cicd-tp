@@ -6,7 +6,7 @@ module.exports = {
   reporters: [
     'default',
     [
-      'jest-allure2',
+      'jest-allure',
       {
         resultsDir: 'allure-results',
         testCase: {
