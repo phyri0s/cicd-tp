@@ -3,5 +3,15 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.js'],
   coveragePathIgnorePatterns: ['/node_modules/'],
   testPathIgnorePatterns: ['/node_modules/'],
-  testResultsProcessor: 'jest-allure/dist/testResultsProcessor'
+  reporters: [
+    'default',
+    ['jest-junit', {
+      outputDirectory: './allure-results',
+      outputName: 'junit.xml',
+      classNameTemplate: '{classname}',
+      titleTemplate: '{title}',
+      ancestorSeparator: ' › ',
+      usePathAsClassName: true
+    }]
+  ]
 };
