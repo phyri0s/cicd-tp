@@ -1,1 +1,1 @@
-[]
+[{"uid":"89dd9788d07b2861","name":"responds with Hello world","time":{"start":1765366224000,"stop":1765366224008,"duration":8},"status":"passed","severity":"normal"},{"uid":"cd4e9987c5c3c004","name":"should return Hello world","time":{"start":1765366224000,"stop":1765366224025,"duration":25},"status":"passed","severity":"normal"},{"uid":"51f23442a42887fc","name":"returns the hello world message","time":{"start":1765366224000,"stop":1765366224001,"duration":1},"status":"passed","severity":"normal"}]
