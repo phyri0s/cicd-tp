@@ -45,19 +45,15 @@ jobs:
         run: npm test -- tests/e2e/
 
       - name: Run all tests with coverage
-      - name: Run all tests with coverage
         run: npm test -- --coverage
 
       - name: Install Allure CLI
         if: always()
         run: npm install -g allure-commandline
 
-      - name: Create allure-results directory and convert test results
+      - name: Create allure-results directory
         if: always()
-        run: |
-          mkdir -p allure-results
-          npm install -g jest-to-allure
-          jest-to-allure test-results.json allure-results || true
+        run: mkdir -p allure-results
 
       - name: Generate Allure Report
         if: always()
