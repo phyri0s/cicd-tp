@@ -1,0 +1,56 @@
+name: Test Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - create-pipeline
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.19.0]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm test -- tests/unit/
+
+      - name: Run integration tests
+        run: npm test -- tests/integration/
+
+      - name: Run e2e tests
+        run: npm test -- tests/e2e/
+
+      - name: Run all tests with coverage
+        run: npm test -- --coverage
+
+      - name: Upload coverage reports
+        if: always()
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          fail_ci_if_error: false
